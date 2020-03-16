@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// Route::get('/', function () {
+//     return view('layouts.main');
+// });
 Route::get('/', 'CoronaController@index');
 Route::get('/data', 'CoronaController@data')->name('data');

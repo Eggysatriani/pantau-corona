@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
@@ -15,9 +16,10 @@ class CoronaController extends Controller
     	$positif = $api_indonesia[0]['positif'];
     	$sembuh = $api_indonesia[0]['sembuh'];
     	$meninggal = $api_indonesia[0]['meninggal'];
-    	// $update = $api_indonesia[1]['lastupdate'];
+    	$update = $api_indonesia[1]['lastupdate'];
+        $date = Carbon::parse($update)->format('d/m/Y');
 
-    	return view('index', compact('negara', 'positif', 'sembuh', 'meninggal'));
+    	return view('layouts.main', compact('negara', 'positif', 'sembuh', 'meninggal', 'date'));
     }
 
     public function data()
